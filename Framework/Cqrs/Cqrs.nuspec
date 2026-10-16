@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+	<metadata>
+		<id>Cqrs</id>
+		<title>CQRS.NET</title>
+		<version>$version$</version>
+		<authors>Chinchilla Software</authors>
+		<licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+		<projectUrl>http://chinchilla-software-com.github.io/CQRS/</projectUrl>
+		<iconUrl>http://chinchilla-software-com.github.io/CQRS/wiki/ChinChilla-Software-Red.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>A lightweight enterprise Function as a Service (FaaS) framework to write function based serverless and micro-service applications in hybrid multi-datacentre, on-premise and Azure environments.</description>
+		<summary>
+A lightweight enterprise Function as a service (FaaS) framework to write function based serverless and micro-service applications in hybrid multi-datacentre, on-premise and Azure environments, offering modern patterns such as CQRS and event-sourcing. Offering a superior combination of serverless, micro-service and traditional deployments both in the cloud and on-premise to suit any business. Deployments can be inter-conntected with each other sharing data and resourcing or independant and issolated while providing a consistent framework and guideline for both development, deployment, DevOps and administration.
+
+CQRS.NET has been designed with modularity in mind... see the number of technology packages below you can chose from. Modularity applies to both development concerns like storage as well as operational modularity such as serverless or micro-service deployment, PaaS, VMs or container packaging. Every package and design choice made should be interchangeable with custom code if needed.
+		</summary>
+		<copyright>Copyright 2013</copyright>
+		<tags>Serverless Microservices CQRS CQRS.NET Pub/Sub Event-Sourcing</tags>
+
+		<releaseNotes>
+			Version 2.4
+
+			see https://github.com/Chinchilla-Software-Com/CQRS/releases/tag/releases%2F2.4%2F2.4.1619.839
+
+			Version 2.3
+
+			see https://github.com/Chinchilla-Software-Com/CQRS/releases/tag/releases%2F2.3%2F2.3.1595.820
+		</releaseNotes>
+	</metadata>
+	<files>
+		<file src="Packaging\*.xdt" target="content" />
+		<file src="Tools\*.ps1" target="Tools" />
+		<file src="Tools\*.sql" target="Tools" />
+	</files>
+</package>

@@ -1,0 +1,181 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net40;netcoreapp3.1</TargetFrameworks>
+		<title>CQRS.NET</title>
+		<Authors>Chinchilla Software</Authors>
+		<Company>Chinchilla Software</Company>
+		<Description>
+			A lightweight enterprise Function as a service (FaaS) framework to write function based serverless and micro-service applications in hybrid multi-datacentre, on-premise and Azure environments, offering modern patterns such as CQRS and event-sourcing. Offering a superior combination of serverless, micro-service and traditional deployments both in the cloud and on-premise to suit any business. Deployments can be inter-conntected with each other sharing data and resourcing or independant and issolated while providing a consistent framework and guideline for both development, deployment, DevOps and administration.
+
+			CQRS.NET has been designed with modularity in mind... see the number of technology packages below you can chose from. Modularity applies to both development concerns like storage as well as operational modularity such as serverless or micro-service deployment, PaaS, VMs or container packaging. Every package and design choice made should be interchangeable with custom code if needed.
+		</Description>
+		<Copyright>Copyright ©  2022</Copyright>
+		<PackageLicenseFile></PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/Chinchilla-Software-Com/CQRS</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Chinchilla-Software-Com/CQRS</RepositoryUrl>
+		<PackageReleaseNotes>
+			Version 4.4.1
+
+			* Added primitive support for encrypting data on events and commands while sending data across a network, if using the default JSON message serialiser.
+			* Added primitive support for encrypting data for general use.
+
+			Version 4.3.0
+
+			* Added better tracing and request monitoring. You can now use Function monitoring to trace WebJob executions.
+
+			Version 4.2.0
+
+			* Added support for Simplified SQL operations using Entiry Framework
+
+			Breaking Changes
+
+			* The old Sql classes are now labeled LinqToSQL
+			* .NET Framework 4.0+ and .NET Core 3.0 both support using different tables for the Simplified SQL Event Store, .Net Standard 2.0 does not.
+			* Removed deprecated Simplified SQL application settings.
+			* The following app settings name have changed to support nice nesting in .NET Core:
+			** Cqrs.Azure.CommandBus.PrivateEvent.TopicName =&gt; Cqrs.Azure.CommandBus.PrivateEvent.Topic.Name
+			** Cqrs.Azure.CommandBus.PublicEvent.TopicName =&gt; Cqrs.Azure.CommandBus.PublicEvent.Topic.Name
+			** Cqrs.Azure.EventBus.PrivateEvent.TopicName.SubscriptionName =&gt; Cqrs.Azure.EventBus.PrivateEvent.Topic.Subscription.Name
+			** Cqrs.Azure.EventBus.PublicEvent.TopicName.SubscriptionName =&gt; Cqrs.Azure.EventBus.PublicEvent.Topic.Subscription.Name
+			** Cqrs.Azure.CommandBus.TopicName.SubscriptionName.Filter =&gt; Cqrs.Azure.CommandBus.Topics.Subscriptions.Filter
+			** Cqrs.Azure.EventBus.TopicName.SubscriptionName.Filter =&gt; Cqrs.Azure.EventBus.Topics.Subscriptions.Filter
+
+			Version 4.1.0
+
+			* Added additional support for .NET Standard 2.0.
+
+			Version 4.0.0
+
+			* Added .NET Core 3.0 support.
+			* Added connection string support to the IConfigurationManager
+			* Removed deprecated interface ICommandSender, use ICommandPublisher instead.
+
+			Breaking Changes
+
+			* LinqToSQL support is removed for .NET Core, but remains for .NET Framework
+			* WebHost support is removed for .NET Core, but remains for .NET Framework
+
+			* Removed Performance Trackers
+		</PackageReleaseNotes>
+		<PackageIcon>images\icon.png</PackageIcon>
+
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageTags>Serverless;Microservices;CQRS;CQRS.NET;Pub/Sub;Event-Sourcing</PackageTags>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Remove="Repositories\Visual Studio 2013\**" />
+		<EmbeddedResource Remove="Repositories\Visual Studio 2013\**" />
+		<None Remove="Repositories\Visual Studio 2013\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="tools\init.ps1">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+		<None Include="tools\install.ps1">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\icon.png" Link="icon.png">
+			<Pack>True</Pack>
+			<PackagePath>images\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="tools\EventStoreTable-SqlServer.sql">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+		<None Include="tools\EventStoreTable-SqlServer-Migration.sql">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+		<None Include="tools\SampleEntity-SqlServer.sql">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="tools\install.ps1">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<OutputType>library</OutputType>
+		<TargetFrameworks>net40;netstandard2.0;netcoreapp3.1</TargetFrameworks>
+		<DocumentationFile>Cqrs.xml</DocumentationFile>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
+		<!--
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		-->
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+		<!--
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.6">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		-->
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR  '$(TargetFramework)' == 'netcoreapp3.1' ">
+		<PackageReference Include="System.Configuration.ConfigurationManager" Version="4.6.0" />
+		<PackageReference Include="System.ServiceModel.Primitives" Version="4.6.0" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.6.0" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="System.ComponentModel.Annotations" Version="4.6.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyModel" Version="3.0.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+		<Reference Include="Microsoft.CSharp" />
+		<Reference Include="System" />
+		<Reference Include="System.ComponentModel.DataAnnotations" />
+		<Reference Include="System.Configuration" />
+		<Reference Include="System.Data.Linq" />
+		<Reference Include="System.ServiceModel" />
+		<Reference Include="System.Transactions" />
+		<Reference Include="System.Web" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+		<PackageReference Include="EntityFramework" Version="6.3.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Chinchilla.StateManagement" Version="4.2.5" />
+		<PackageReference Include="Chinchilla.Logging" Version="4.5.29" />
+		<!-- Locked at 3.0.9 see - https://github.com/Azure/Azure-Functions/issues/1370 -->
+		<PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Remove="Properties\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Cqrs.xml" />
+		<None Remove="tools\Create-Log-Table.sql" />
+	</ItemGroup>
+</Project>

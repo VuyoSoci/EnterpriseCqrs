@@ -1,0 +1,82 @@
+# See the comments below for more info on how to add exceptions for your
+# content. Or see git's documentation for more info on .gitignore files:
+# http://kernel.org/pub/software/scm/git/docs/gitignore.html
+
+# Ignore everything in the nuget packages directory except the "repositories.config" file.
+## packages/* ## will only ignore files... not folders
+packages/
+!packages/repositories.config
+
+# Ignore any bin and/or obj folder recursively
+bin/
+obj/
+
+# Ignore any rcf and/or csx folder recursively for Azure projects
+rcf/
+csx/
+
+# Ignore the ModellingTemplates folder recursively for UML modelling as these are package based
+ModelingTemplates/
+
+# Ignore any *.user and *.suo file recursively 
+*.user
+*.suo
+
+# Ignore the publish folder which is only used for package publishing... not storing
+/publish
+/NorthwindDemo/step-4/aspnet-mvc/Northwind/System/DateTime.generated.cs
+/NorthwindDemo/step-4/aspnet-mvc/Northwind/System/Guid.generated.cs
+/NorthwindDemo/step-4/aspnet-mvc/Northwind/System/decimal.generated.cs
+/NorthwindDemo/step-4/aspnet-mvc/Northwind/System/double.generated.cs
+/NorthwindDemo/step-4/aspnet-mvc/Northwind/System/long.generated.cs
+/NorthwindDemo/step-4/aspnet-mvc/Northwind/System/short.generated.cs
+/NorthwindDemo/step-4/aspnet-mvc/Northwind.Models/CodeGeneration.Log.xml
+/NorthwindDemo/step-5/aspnet-mvc/Northwind.Models/CodeGeneration.Log.xml
+/Code
+/Framework/Azure/Tests/Cqrs.Azure.BlobStorage.Test.Integration/app.config
+/Framework/Azure/Cqrs.Azure.ServiceBus.Tests.Integration/App.config
+/Framework/Azure/Tests/Cqrs.Azure.Storage.Test.Integration/app.config
+/Modelling/Cqrs.Modelling.Dsl
+/HelloWorldExample/connectionStrings.config
+/HelloWorldExample/.nuget/NuGet.exe
+/Northwind/aspnet-mvc/kendoui-northwind-dashboard/connectionStrings.config
+/Scheduler/Cqrs.Scheduler/App.Local.config
+/Scheduler/Cqrs.Scheduler.SampleReport/App.Local.config
+/Framework/Azure/Tests/Cqrs.Azure.ServiceBus.Tests.Integration/app.config
+/Framework/Azure/Cqrs.Azure.EventHub/Cqrs.Azure.EventHub.xml
+/Framework/Azure/Cqrs.Azure.ServiceBus/Cqrs.Azure.ServiceBus.xml
+/Framework/Cqrs/Cqrs.xml
+/Framework/Ninject/Azure/Cqrs.Ninject.Azure.EventHub.CommandBus/Cqrs.Ninject.Azure.EventHub.CommandBus.xml
+/Framework/Ninject/Azure/Cqrs.Ninject.Azure.EventHub.EventBus/Cqrs.Ninject.Azure.ServiceBus.CommandBus.xml
+/Framework/Ninject/Azure/Cqrs.Ninject.Azure.ServiceBus.CommandBus/Cqrs.Ninject.Azure.ServiceBus.CommandBus.xml
+/Framework/Ninject/Azure/Cqrs.Ninject.Azure.ServiceBus.EventBus/Cqrs.Ninject.Azure.ServiceBus.CommandBus.xml
+/Framework/Ninject/Cqrs.Ninject/Cqrs.Ninject.xml
+/Framework/Azure/EnterpriseLibrary.Azure.TransientFaultHandling.ServiceBus.NetCore/EnterpriseLibrary.Azure.TransientFaultHandling.ServiceBus.NetCore.xml
+/.nuget/NuGet.exe
+/Framework/Azure/Cqrs.Azure.ConfigurationManager/Cqrs.Azure.ConfigurationManager.xml
+/Framework/Ninject/Azure/Cqrs.Ninject.Azure.WebJobs/Cqrs.Ninject.Azure.WebJobs.xml
+/Framework/Ninject/Azure/Cqrs.Ninject.Azure.Wcf/Cqrs.Ninject.Azure.Wcf.xml
+/Framework/Azure/Tests/Cqrs.Azure.ServiceBus.Tests.Integration/Cqrs.Azure.ServiceBus.Tests.Integration.xml
+/Framework/Azure/Tests/Cqrs.Azure.ServiceBus.Tests.Unit/Cqrs.Azure.ServiceBus.Tests.Unit.xml
+/Framework/Akka.Net/Cqrs.Akka/Cqrs.Akka.xml
+/Framework/Azure/Cqrs.Azure.BlobStorage/Cqrs.Azure.BlobStorage.xml
+/Framework/Azure/Cqrs.Azure.DocumentDb/Cqrs.Azure.DocumentDb.xml
+/Framework/Azure/Cqrs.Azure.Storage/Cqrs.Azure.Storage.xml
+/Framework/Cqrs.Mongo/Cqrs.Mongo.xml
+/Framework/Cqrs.MongoDB/Cqrs.MongoDB.xml
+/Framework/Cqrs.Tests/Cqrs.Tests.xml
+/Framework/Cqrs.Web.Mvc/Cqrs.Web.Mvc.xml
+/Framework/Cqrs.WebApi/Cqrs.WebApi.xml
+/Framework/Ninject/Azure/Cqrs.Ninject.Azure.DocumentDb/Cqrs.Ninject.Azure.DocumentDb.xml
+/Framework/Ninject/Cqrs.Ninject.Akka/Cqrs.Ninject.Akka.xml
+/Framework/Ninject/Cqrs.Ninject.Mongo/Cqrs.Ninject.Mongo.xml
+/Framework/Ninject/Cqrs.Ninject.MongoDB/Cqrs.Ninject.MongoDB.xml
+/Framework/Ninject/Cqrs.Ninject.ServiceHost/Cqrs.Ninject.ServiceHost.xml
+/Framework/Ninject/Cqrs.Ninject.WebApi/Cqrs.Ninject.WebApi.xml
+/Framework/Azure/Tests/Cqrs.Azure.ServiceBus.Tests.Integration/local.settings.json
+/Framework/Ninject/Azure/Tests/Cqrs.Ninject.Azure.WebJobs.Tests.Integration/App.config
+/Framework/Azure/Cqrs.Azure.WebJobs/Cqrs.Azure.WebJobs.xml
+/.vs
+/Chat/.vs
+/Framework/Azure/Cqrs.Azure.KeyVault/Cqrs.Azure.KeyVault.xml
+/Framework/Azure/Cqrs.Azure.KeyVault/Tools/install.ps1

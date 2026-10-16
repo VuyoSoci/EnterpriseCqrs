@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
+		<title>Microsoft Azure Configuration Manager for CQRS.NET</title>
+		<Authors>Chinchilla Software</Authors>
+		<Company>Chinchilla Software</Company>
+		<Description>Use Azure Configuration Manager as the configuration manager in CQRS.NET</Description>
+		<Copyright>Copyright ©  2022</Copyright>
+		<PackageLicenseFile></PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/Chinchilla-Software-Com/CQRS</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/Chinchilla-Software-Com/CQRS</RepositoryUrl>
+		<PackageReleaseNotes>
+			Version 4.3
+
+			* Added ITelemetryInitializer to enable simulating Azure Functions for monitoring
+
+			Version 4.2.0
+
+			* Patched some handling for .NET Core.
+
+			Version 4.1.0
+
+			* Switched to .NET Standard 2.0 support from .NET Core 3.0.
+
+			Version 4.0.0
+
+			* Added .NET Core 3.0 support.
+			* Added connection string support to the IConfigurationManager
+
+			Breaking Changes
+
+			* In .Net Core CloudConfigurationManager.ConfigurationManager may need to be manually set.
+		</PackageReleaseNotes>
+		<PackageIcon>images\icon.png</PackageIcon>
+
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageTags>CQRS;CQRS.NET;Azure</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="tools\init.ps1">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+		<None Include="tools\install.ps1">
+			<Pack>True</Pack>
+			<PackagePath>tools\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\icon.png" Link="icon.png">
+			<Pack>True</Pack>
+			<PackagePath>images\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Remove="Properties\AssemblyInfo.cs" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<OutputType>library</OutputType>
+		<TargetFrameworks>net472;netstandard2.0</TargetFrameworks>
+		<DocumentationFile>Cqrs.Azure.ConfigurationManager.xml</DocumentationFile>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+	</PropertyGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.0.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+		<PackageReference Include="Microsoft.Azure.ConfigurationManager" Version="4.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Cqrs.Azure.ConfigurationManager.xml" />
+	  <None Remove="packages.config" />
+	  <None Remove="Tools\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Chinchilla.StateManagement" Version="4.2.5" />
+	  <PackageReference Include="Chinchilla.Logging" Version="4.5.29" />
+	  <PackageReference Include="Microsoft.ApplicationInsights" Version="2.11.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Cqrs\Cqrs.csproj" />
+	</ItemGroup>
+</Project>
